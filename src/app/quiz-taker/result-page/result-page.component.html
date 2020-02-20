@@ -1,0 +1,22 @@
+<h3>Results for {{quiz.name}}</h3>
+
+<div class="d-flex flex-row alert justify-content-center"
+  [class.alert-success]="percentResult >= 50"
+  [class.alert-warning]="percentResult < 50"
+>
+  <h1>
+    Result : {{ totalRightAnswers }} / {{quiz.questions.length}}
+  </h1>
+</div>
+
+<ng-container *ngFor="let question of quiz.questions; let i = index">
+  <div class="card bg-light">
+    <app-display-question
+      [question]="question"
+      [index]="i"
+      [showResult]="true"
+    ></app-display-question>
+  </div>
+</ng-container>
+
+

@@ -1,0 +1,31 @@
+<h6>Q {{index + 1}} :</h6>
+<h4>{{question.question}}</h4>
+<ul class="list-group">
+  <li *ngFor="let choice of question.choices; let iChoice = index" class="list-group-item"
+      (click)="changeValue(choice)"
+      [class.clickable-li]="!showResult"
+      [class.list-group-item-success]="showResult && choice.isCorrect && choice.userChoice"
+      [class.list-group-item-danger]="showResult && choice.userChoice && !choice.isCorrect"
+      [class.list-group-item-warning]="(!showResult && choice.userChoice)"
+      [class.list-group-item-info]="(showResult && (!choice.userChoice && choice.isCorrect))"
+  >
+    <div class="question-container">
+      <div class="d-flex flex-row">
+        <input
+          [disabled]="showResult"
+          class="input-group-prepend"
+          type="checkbox"
+          [(ngModel)]="choice.userChoice"
+          [id]="'check-q-' + iChoice">
+        <div class="question-container">
+          {{choice.text}}
+        </div>
+      </div>
+      <div class="badge badge-success" *ngIf="showResult && choice.userChoice && choice.isCorrect">Your answer</div>
+      <div class="badge badge-danger" *ngIf="showResult && choice.userChoice && !choice.isCorrect">Your answer</div>
+      <div class="badge badge-info" *ngIf="showResult && choice.isCorrect && !choice.userChoice">Correct answer</div>
+    </div>
+
+  </li>
+</ul>
+<div class="alert alert-info" style="margin-top: 20px;" *ngIf="showResult && question.explanation">{{question.explanation}}</div>

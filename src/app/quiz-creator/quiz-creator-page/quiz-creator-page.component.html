@@ -1,0 +1,31 @@
+<form [formGroup]="quizForm">
+  <div class="label-input-container">
+    <label for="title">Test title</label>
+    <input
+      type="text"
+      [formControlName]="'name'"
+      class="form-control"
+      id="title"
+      placeholder="Test title"
+      required="">
+  </div>
+  <ng-container *ngIf="questions.controls">
+    <div
+      formArrayName="questions"
+      *ngFor="let question of questions.controls; let i = index;"
+    >
+      <app-question-input
+        [index]="i"
+        (deleteClicked)="removeQuestion(i)"
+        [question]="question"
+      ></app-question-input>
+    </div>
+  </ng-container>
+
+  <div class="d-flex flex-row-reverse">
+    <button class="btn btn-outline-primary" (click)="addQuestion()">+ Add a question</button>
+  </div>
+  <hr class="mb-4">
+  <app-code-generator [quizForm]="quizForm"></app-code-generator>
+</form>
+

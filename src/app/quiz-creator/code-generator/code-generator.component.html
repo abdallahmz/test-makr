@@ -1,0 +1,28 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Your test code</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+    <div class="input-group">
+
+<!--      <div class="form-control" style="overflow-x: auto; height: 70px;" aria-label="With textarea" >-->
+<!--      </div>-->
+        <input class="form-control" id="quizcode" [value]="quizCode"/>
+      <div class="input-group-append" style="cursor: pointer" (click)="copy()">
+        <span class="input-group-text">Copy</span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <label *ngIf="copied">Copied to clipboard!</label>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<div class="d-flex flex-row-reverse">
+  <button class="btn btn-success" (click)="generateQuizCode(content)" type="submit">Generate code for this test</button>
+</div>

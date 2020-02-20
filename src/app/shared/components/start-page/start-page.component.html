@@ -1,0 +1,56 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <div class="card">
+      <h4>I want to take a test</h4>
+      <form (ngSubmit)="onCodeTakerSubmit()">
+        <div class="form-group">
+          <input
+            [formControl]="quizCodeTestTaker"
+            type="text"
+            class="form-control"
+            id="quizCodeInput"
+            aria-describedby="quizCodeHelper"
+            placeholder="Enter quiz code">
+          <small id="quizCodeHelper" class="form-text text-muted">
+            This code is generated & shared by a quiz maker.<br/>
+            <i style="text-decoration: underline; cursor: pointer;"
+              (click)="quizCodeTestTaker.setValue('bmFtZXxBbmd1bGFyK1Rlc3R8aW50cm9kdWN0aW9ufHF1ZXN0aW9uc3xxdWVzdGlvbnxXaGljaCtzdGFydHMrZmlyc3QrOit0aGUrQ29uc3RydWN0b3Irb3IrdGhlK25nT25Jbml0Kz98Y2hvaWNlc3x0ZXh0fENvbnN0cnVjdG9yfGlzQ29ycmVjdHxuZ09uSW5pdHxleHBsYW5hdGlvbnxDb25zdHJ1Y3RvcitpcytleGVjdXRlZCt3aGVuK3RoZStjbGFzcytpcytpbnN0YW50aWF0ZWQuK25nT25Jbml0K2lzK3RoZStob29rK0FuZ3VsYXIrY2FsbHMrd2hlbit0aGUrY29tcG9uZW50K2hhcytiZWVuK2NyZWF0ZWQufChNdWx0aXBsZSthbnN3ZXJzK3Bvc3NpYmxlKStBcHArY29tcGlsZWQrd2l0aCtBT1QrbGF1bmNoK2Zhc3RlcitiZWNhdXNlLi4ufFRoZStjbGllbnQrZG9lc24ndCtoYXZlK3RvK2NvbXBpbGUrdGhlK2FwcHxUaGUramF2YXNjcmlwdCtpcyttaW5pZmllZHxUaGUrQW5ndWxhcitjb21waWxlcitpcytub3QrZG93bmxvYWRlZHxNb3JlK3RyZWUtc2hha2luZytjYW4rYmUrZG9uZXxuZ09uRGVzdHJveStpcytjYWxsZWQuLi58YmVmb3JlK0FuZ3VsYXIrZGVzdHJveXMrdGhlK2NvbXBvbmVudHxhZnRlcitBbmd1bGFyK2Rlc3Ryb3lzK3RoZStjb21wb25lbnR8QW5ndWxhcisib3V0LW9mLXRoZS1ib3giK29mZmVycytydW50aW1lK2kxOG4rdHJhbnNsYXRpb258WWVzfE5vLCtvbmx5K2NvbXBpbGUrdGltZXxXaGF0K2lzK2Erc2NoZW1hdGljKz98SXQraXMrYSt0eXBlK29mK2NsYXNzLCtsaWtlK2Erc2VydmljZXxJdCtkZXNjcmliZSthK3NjaGVtYStmb3IrcnVudGltZStkeW5hbWljK2NvbXBvbmVudHN8SXQrbGV0cyt1cytnZW5lcmF0ZStjb2RlfFdoZW4reW91K3VzZStuZytnZW5lcmF0ZSwraXQrdXNlcytzY2hlbWF0aWNzK2luK3RoZStiYWNrZ3JvdW5kKyF8V2l0aCtyb3V0ZXIrYW5kK3JvdXRlLCt5b3UrY2FuLi4ufFBhc3MrcXVlcnkrcGFyYW1ldGVyc3xQYXNzK3VybCtwYXRoK3BhcmFtZXRlcnN8UGFzcytzdGF0ZStwYXJhbWV0ZXJzKyh3aXRob3V0K3VybCtjaGFuZ2UpfFNpbmNlK0FuZ3VsYXIrNyt3ZStjYW4rcGFzcytwYXJhbWV0ZXJzK3Rocm91Z2grdGhlK3JvdXRlcit3aXRob3V0K3RoZW0rYXBwZWFyaW5nK2luK3RoZSt1cmx8V2hhdCtpcytASG9zdExpc3RlbmVyK3VzZWQrZm9yKz98SXQrbGV0cyt1cytsaXN0ZW4rdG8rdGhlK2hvc3QncytpbnB1dCtjaGFuZ2VzfEl0K2xldHMrdXMrbGlzdGVuK3RvK3RoZStob3N0J3Mrb3V0cHV0K2NoYW5nZXN8SXQrbGV0cyt1cytsaW5rK2ErZGlyZWN0aXZlK21ldGhvZCt0bythbitldmVudHxJdCtsZXRzK3VzK2hvc3Qrb3VyK2NvbXBvbmVudCt0byt0aGUrcm9vdCtsaXN0ZW5lcnxjb3JyZWN0Q2hvaWNlfFdoYXQrY2FuK0krZG8rZnJvbSt0aGUrdGVtcGxhdGUraWYrSSt3YW50K3RvK2Rpc3BsYXkrYStKU09OK29iamVjdCs/fHt7K2pzb25PYmplY3QrJTdDK2pzb24rfX18e3srSlNPTi5zdHJpbmdpZnkoanNvbk9iamVjdCkrfX18e3sranNvbk9iamVjdCt9fXxOb25lK29mK3RoZSthYm92ZXxKU09OK2lzK25vdCthdmFpbGFibGUrYnkrZGVmYXVsdCsodW5sZXNzK3dlK2RlY2xhcmUraXQrYXMrYSt2YXJpYWJsZSkuK2pzb25PYmplY3Qrd2lsbCtkaXNwbGF5KzorW09iamVjdCtvYmplY3RdLnxXaGljaCtkZWNvcmF0b3IraXMrdXNlZCt0bytkZWNsYXJlK3NlcnZpY2VzKz98QEhvc3RMaXN0ZW5lcnxAQ29tcG9uZW50fEBEaXJlY3RpdmV8QFNlcnZpY2V8QEluamVjdGFibGVeXl4kMHwxfDJ8LTR8M3xAJDR8NXw2fEAkN3w4fDl8LTFdfCQ3fEF8OXwtMl1dfEJ8Q118JDR8RHw2fEAkN3xFfDl8LTFdfCQ3fEZ8OXwtMl18JDd8R3w5fC0xXXwkN3xIfDl8LTFdXXxCfC00XXwkNHxJfDZ8QCQ3fEp8OXwtMV18JDd8S3w5fC0yXV18QnwtNF18JDR8THw2fEAkN3xNfDl8LTJdfCQ3fE58OXwtMV1dfEJ8LTRdfCQ0fE98NnxAJDd8UHw5fC0yXXwkN3xRfDl8LTJdfCQ3fFJ8OXwtMV1dfEJ8U118JDR8VHw2fEAkN3xVfDl8LTFdfCQ3fFZ8OXwtMV18JDd8V3w5fC0xXV18QnxYXXwkNHxZfDZ8QCQ3fFp8OXwtMl18JDd8MTB8OXwtMl18JDd8MTF8OXwtMV18JDd8MTJ8OXwtMl1dfDEzfC00fEJ8LTRdfCQ0fDE0fDZ8QCQ3fDE1fDl8LTFdfCQ3fDE2fDl8LTJdfCQ3fDE3fDl8LTJdfCQ3fDE4fDl8LTJdXXwxM3wtNHxCfDE5XXwkNHwxQXw2fEAkN3wxQnw5fC0yXXwkN3wxQ3w5fC0yXXwkN3wxRHw5fC0yXXwkN3wxRXw5fC0yXXwkN3wxRnw5fC0yXV18MTN8LTR8QnwtNF1dXQ==')"
+            >Click here to get an Angular Test code !</i>
+          </small>
+        </div>
+        <button type="submit" class="btn btn-primary">Take the test</button>
+
+      </form>
+    </div>
+
+    <div class="card">
+      <h4>I want to create a test</h4>
+      <form (ngSubmit)="onCodeEditorSubmit()">
+        <div class="form-group">
+          <small class="form-text text-muted">
+            After creating, don't forget to generate & save your test code.
+          </small>
+        </div>
+        <a routerLink="/create" class="btn btn-primary">Start creating</a>
+      </form>
+
+    </div>
+
+    <div class="card">
+      <h4>I want to edit a test</h4>
+      <form (ngSubmit)="onCodeEditorSubmit()">
+        <div class="form-group">
+          <input
+            [formControl]="quizCodeTestEditor"
+            type="text" class="form-control" aria-describedby="quizCodeHelper2" placeholder="Enter quiz code">
+          <small class="form-text text-muted">After editing, don't forget to generate & save your new test code.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Start editing</button>
+      </form>
+
+
+
+    </div>
+
+  </div>
+</section>

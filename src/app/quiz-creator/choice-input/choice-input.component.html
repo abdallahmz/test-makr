@@ -1,0 +1,24 @@
+<form *ngIf="choice" [formGroup]="choice">
+  <div class="label-input-container">
+    <label [for]="'choice-' + index">Choice #{{+index + 1}}</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input
+            [formControlName]="'isCorrect'"
+            type="checkbox"
+            aria-label="Is it correct">
+        </div>
+      </div>
+      <input
+        [id]="'choice-' + index"
+        type="text"
+        [formControlName]="'text'"
+        class="form-control"
+        [placeholder]="'Choice #' + (+index + 1)"
+        required="">
+    <span class="delete-choice-badge" (click)="deleteClicked.emit()">x</span>
+    </div>
+  </div>
+</form>
+

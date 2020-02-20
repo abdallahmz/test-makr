@@ -1,0 +1,36 @@
+.form-control:disabled, input[type="checkbox"]:disabled {
+  background-color: transparent;
+  color: black;
+}
+
+.list-group-item {
+
+  //margin-left: 10px;
+  //border: 0px;
+  //border-bottom: 1px solid #ced4da;
+}
+
+.list-group-item:first-child {
+  //border-top: 1px solid #ced4da;
+}
+
+.clickable-li {
+  * {
+    cursor: pointer;
+  }
+}
+
+.question-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .badge {
+    align-self: flex-end;
+  }
+  input[type="checkbox"] {
+    align-self: center;
+    margin-right: 20px;
+  }
+}
+
+

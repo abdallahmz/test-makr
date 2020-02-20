@@ -1,0 +1,44 @@
+<div class="card mb-3" *ngIf="question" [formGroup]="question">
+  <div class="d-flex justify-content-between">
+    <h3>Q {{index + 1}}</h3>
+    <span
+      class="delete-question-badge"
+      (click)="removeQuestion()">x</span>
+  </div>
+  <div class="label-input-container">
+    <label for="question">Question</label>
+    <input
+      type="text"
+      [formControlName]="'question'"
+      class="form-control"
+      id="question"
+      placeholder="Question"
+      required="">
+  </div>
+
+  <div formArrayName="choices"
+       class="choices"
+       *ngFor="let choice of choices.controls; let i = index;">
+      <app-choice-input (deleteClicked)="removeChoice(i)" [index]="i" [choice]="choice"></app-choice-input>
+  </div>
+  <div class="d-flex flex-row-reverse">
+    <button
+      class="btn btn-outline-primary"
+      (click)="addChoice()">
+      + Add choice
+    </button>
+  </div>
+
+  <div class="mb-3 label-input-container">
+    <label for="explanation">Explanation <span class="text-muted">(Optional)</span></label>
+    <input
+      type="text"
+      [formControlName]="'explanation'"
+      class="form-control"
+      id="explanation"
+      placeholder="Explanation">
+  </div>
+
+</div>
+
+

@@ -1,0 +1,21 @@
+<h3>{{quiz.name}}</h3>
+
+<div class="card bg-light">
+  <app-display-question
+    [index]="currentIndex"
+    [question]="currentQuestion"
+  ></app-display-question>
+
+    <div class="btn-toolbar justify-content-between">
+      <div>
+        <button class="btn btn-outline-primary" *ngIf="currentIndex > 0" (click)="goToPreviousQuestion()"> < Go back</button>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary" *ngIf="currentIndex < quiz.questions.length - 1" (click)="goToNextQuestion()"> Next question > </button>
+        <button class="btn btn-success"
+                *ngIf="currentIndex === (quiz.questions.length - 1)"
+                (click)="goToResult()"> End the test & see results </button>
+      </div>
+    </div>
+</div>
+
